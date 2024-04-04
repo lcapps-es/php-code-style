@@ -209,6 +209,16 @@ return static function (ECSConfig $config): void {
     $config->ruleWithConfiguration(ArraySyntaxFixer::class, ['syntax' => 'short']);
     $config->ruleWithConfiguration(LineLengthFixer::class, [LineLengthFixer::LINE_LENGTH => 120]);
     $config->ruleWithConfiguration(ConcatSpaceFixer::class, ['spacing' => 'one']);
+
+    $config->ruleWithConfiguration(
+        NamedArgumentsFixer::class,
+        [
+            'operators' => [
+                ':'  => 'align_single_space_minimal',
+            ]
+        ]
+    );
+
     $config->ruleWithConfiguration(
         BinaryOperatorSpacesFixer::class,
         [
@@ -219,14 +229,6 @@ return static function (ECSConfig $config): void {
         ]
     );
 
-    $config->ruleWithConfiguration(
-        NamedArgumentsFixer::class,
-        [
-            'operators' => [
-                ':'  => 'align_single_space_minimal',
-            ]
-        ]
-    );
     $config->ruleWithConfiguration(
         GlobalNamespaceImportFixer::class,
         ['import_classes' => true, 'import_constants' => false, 'import_functions' => false]

@@ -575,7 +575,7 @@ $array = [
             $tokens->insertAt($index, new Token([\T_WHITESPACE, ' ']));
             return;
         }
-        if (self::ALIGN_SINGLE_SPACE_MINIMAL !== $alignStrategy && self::ALIGN_SINGLE_SPACE_MINIMAL_BY_SCOPE !== $alignStrategy || $tokens[$tokens->getPrevNonWhitespace($index - 1)]->isComment()) {
+        if ((self::ALIGN_SINGLE_SPACE_MINIMAL !== $alignStrategy && self::ALIGN_SINGLE_SPACE_MINIMAL_BY_SCOPE !== $alignStrategy) || $tokens[$tokens->getPrevNonWhitespace($index - 1)]->isComment()) {
             return;
         }
         $content = $tokens[$index - 1]->getContent();
