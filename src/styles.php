@@ -213,7 +213,8 @@ return static function (ECSConfig $config): void {
         [
             'operators' => [
                 '=>' => 'align_single_space_minimal',
-                '='  => 'align_single_space_minimal'
+                '='  => 'align_single_space_minimal',
+                ':'  => 'align_single_space_minimal',
             ]
         ]
     );
