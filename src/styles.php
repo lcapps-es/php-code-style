@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 
+use LCApps\CodeStyle\Fixer\NamedArgumentsFixer;
 use PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NoWhitespaceBeforeCommaInArrayFixer;
@@ -214,6 +215,14 @@ return static function (ECSConfig $config): void {
             'operators' => [
                 '=>' => 'align_single_space_minimal',
                 '='  => 'align_single_space_minimal',
+            ]
+        ]
+    );
+
+    $config->ruleWithConfiguration(
+        NamedArgumentsFixer::class,
+        [
+            'operators' => [
                 ':'  => 'align_single_space_minimal',
             ]
         ]
