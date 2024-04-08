@@ -204,20 +204,12 @@ return static function (ECSConfig $config): void {
                        SingleSpaceAroundConstructFixer::class,
                        StandardizeNotEqualsFixer::class,
                        TernaryOperatorSpacesFixer::class,
+                       NamedArgumentsFixer::class,
                    ]);
 
     $config->ruleWithConfiguration(ArraySyntaxFixer::class, ['syntax' => 'short']);
     $config->ruleWithConfiguration(LineLengthFixer::class, [LineLengthFixer::LINE_LENGTH => 120]);
     $config->ruleWithConfiguration(ConcatSpaceFixer::class, ['spacing' => 'one']);
-
-    $config->ruleWithConfiguration(
-        NamedArgumentsFixer::class,
-        [
-            'operators' => [
-                ':'  => 'align_single_space_minimal',
-            ]
-        ]
-    );
 
     $config->ruleWithConfiguration(
         BinaryOperatorSpacesFixer::class,

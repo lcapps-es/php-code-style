@@ -15,7 +15,8 @@
             "LCApps\\CodeStyle\\": "src/"
         }
     },
-    "require-dev": {
+    "require": {
+        "php": "^8.3",
         "symplify/easy-coding-standard": "^12.1"
     }
 }
