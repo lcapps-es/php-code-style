@@ -208,7 +208,13 @@ return static function (ECSConfig $config): void {
                    ]);
 
     $config->ruleWithConfiguration(ArraySyntaxFixer::class, ['syntax' => 'short']);
-    $config->ruleWithConfiguration(LineLengthFixer::class, [LineLengthFixer::LINE_LENGTH => 120]);
+    $config->ruleWithConfiguration(
+        LineLengthFixer::class,
+        [
+            LineLengthFixer::LINE_LENGTH => 120,
+            LineLengthFixer::INLINE_SHORT_LINES => false
+        ]
+    );
     $config->ruleWithConfiguration(ConcatSpaceFixer::class, ['spacing' => 'one']);
 
     $config->ruleWithConfiguration(
