@@ -79,8 +79,7 @@ callFunction(
     #[Override]
     public function supports(SplFileInfo $file): bool
     {
-        var_dump($file->getFilename());
-        return $file->getFilename() === 'CreateBrandCommandHandler.php';
+        return true;
     }
 
     private function checkIfNamedArguments(Tokens $tokens, int $from, int $to): bool
