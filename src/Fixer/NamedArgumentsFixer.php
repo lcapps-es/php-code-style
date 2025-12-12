@@ -115,7 +115,7 @@ PHP
         return new FixerConfigurationResolver([
             (new FixerOptionBuilder('spacing', 'Spacing style before the colon'))
                 ->setAllowedValues([self::ALIGN_SINGLE_SPACE_MINIMAL, self::SINGLE_SPACE, self::NO_SPACE])
-                ->setDefault(self::ALIGN_SINGLE_SPACE_MINIMAL)
+                ->setDefault(self::NO_SPACE)
                 ->getOption(),
         ]);
     }
@@ -140,7 +140,7 @@ PHP
 
     private function processNamedArguments(Tokens $tokens, int $from, int $to): void
     {
-        $spacing = $this->configuration['spacing'] ?? self::ALIGN_SINGLE_SPACE_MINIMAL;
+        $spacing = $this->configuration['spacing'] ?? self::NO_SPACE;
 
         switch ($spacing) {
             case self::ALIGN_SINGLE_SPACE_MINIMAL:

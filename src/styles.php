@@ -204,7 +204,6 @@ return static function (ECSConfig $config): void {
                        SingleSpaceAroundConstructFixer::class,
                        StandardizeNotEqualsFixer::class,
                        TernaryOperatorSpacesFixer::class,
-                       NamedArgumentsFixer::class,
                    ]);
 
     $config->ruleWithConfiguration(ArraySyntaxFixer::class, ['syntax' => 'short']);
@@ -225,6 +224,11 @@ return static function (ECSConfig $config): void {
                 '='  => 'align_single_space_minimal',
             ]
         ]
+    );
+
+    $config->ruleWithConfiguration(
+        NamedArgumentsFixer::class,
+        ['spacing' => NamedArgumentsFixer::ALIGN_SINGLE_SPACE_MINIMAL]
     );
 
     $config->ruleWithConfiguration(
