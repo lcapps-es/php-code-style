@@ -8,6 +8,7 @@ use PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NoWhitespaceBeforeCommaInArrayFixer;
 use PhpCsFixer\Fixer\ArrayNotation\TrimArraySpacesFixer;
+use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
 use PhpCsFixer\Fixer\Basic\NoMultipleStatementsPerLineFixer;
 use PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer;
 use PhpCsFixer\Fixer\Casing\ClassReferenceNameCasingFixer;
@@ -240,6 +241,16 @@ return static function (ECSConfig $config): void {
         YodaStyleFixer::class,
         ['equal' => false, 'identical' => false, 'less_and_greater' => false]
     );
+
+    $config->ruleWithConfiguration(ForbiddenFunctionsSniff::class, [
+        'forbiddenFunctions' => [
+            'var_dump'  => null,
+            'dump'      => null,
+            'dd'        => null,
+            'print_r'   => null,
+            'var_export' => null,
+        ],
+    ]);
 
     $config->ruleWithConfiguration(PhpUnitMethodCasingFixer::class, ['case' => PhpUnitMethodCasingFixer::SNAKE_CASE]);
     $config->ruleWithConfiguration(OrderedTypesFixer::class, ['null_adjustment' => 'always_last']);
